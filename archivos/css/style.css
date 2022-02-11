@@ -34,3 +34,6 @@ p {
 .p {
   color: #ffc107;
 }
+.visible {
+  visibility: visible !important;
+}
