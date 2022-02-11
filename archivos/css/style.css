@@ -1,5 +1,5 @@
 body {
-  background: rgb(83, 1, 81);
+  background: rgb(62 2 2);
   margin: 0;
   font-family: "Montserrat", sans-serif;
 }
@@ -24,3 +24,8 @@ p {
   transform: translate(-50%, -50%);
   color: white;
 }
+.navbar-light .navbar-brand {
+  color: #ffc107;
+}
+.text-white {
+    color: yellow !important;
