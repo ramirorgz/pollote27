@@ -23,7 +23,6 @@ p {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white;
 }
 .navbar-light .navbar-brand {
   color: #ffc107;
@@ -37,4 +36,17 @@ p {
 }
 .visible {
   visibility: visible !important;
+}
+.img-box img {
+  animation: from-right 3 ease 3s;
+}
+@keyframes from-right {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
 }
