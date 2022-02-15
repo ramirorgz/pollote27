@@ -1,16 +1,20 @@
 body {
-  background: background-color: #973990;
-  background-image: linear-gradient(0deg, #973990 16%, #edab21 72%);
+  background-color: #000208;
+  background-image: linear-gradient(
+    0deg,
+    #000208 9%,
+    #c850c0 78%,
+    #ffffff 100%
+  );
+
   margin: 0;
+  padding: auto;
   font-family: "Bodoni Moda", serif;
 }
 
-p {
-  color: rgb(236, 236, 139);
-}
 .hero-image {
   background-image: url("/archivos/imagenes/pollo2.jpg");
-  height: 500px;
+  height: 800px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -27,13 +31,16 @@ p {
 }
 .navbar-light .navbar-brand {
   color: #ffc107;
+  font-size: xx-large !important;
 }
 .text-white {
   color: yellow !important;
+  text-shadow: 2px 2px 8px #584e03;
+  font-size: xx-large !important;
 }
-
-.p {
-  color: #6a04ae;
+.text-purple {
+  color: #480258;
+  font-size: x-large !important;
 }
 .visible {
   visibility: visible !important;
@@ -41,6 +48,7 @@ p {
 .img-box img {
   animation: from-right 7 ease 3s;
 }
+
 @keyframes from-right {
   0% {
     opacity: 0;
@@ -51,4 +59,3 @@ p {
     transform: translateX(0px);
   }
 }
-
