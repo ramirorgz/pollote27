@@ -2,9 +2,12 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" href="\archivos\imagenes\pollote.svg" />
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pollote 27</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="icon" href="\archivos\imagenes\pollote.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -17,17 +20,12 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
-    <script
-      src="https://kit.fontawesome.com/6ed304a3f6.js"
-      crossorigin="anonymous"
-    ></script>
+
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
     />
     <link rel="stylesheet" href="archivos/css/style.css" />
-
-    <title>Pollote 27</title>
   </head>
   <body>
     <div class="hero-image">
@@ -42,7 +40,7 @@
                 <div class="container-fluid">
                   <h1 class="navbar-brand text-center fw-bolder">Pollote 27</h1>
                   <button
-                    class="navbar-toggler col-12 bg-yellow"
+                    class="navbar-toggler col-12 border-none"
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent"
@@ -58,15 +56,27 @@
                   >
                     <ul class="navbar-nav me-auto mb-2 mb-md-0">
                       <li class="nav-item">
-                        <a class="nav-link" href="#">Menu</a>
+                        <li class="ms-3">
+                            <a class="text-p" href="#">
+                              <i class="bi bi-whatsapp"></i>
+                            </a>
+                        </li>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="#">Contacto</a>
+                        <li class="ms-3">
+                            <a class="text-p" href="https://www.instagram.com/pollote27/?hl=es-la">
+                            <i class="bi bi-instagram"></i>
+                          </a>
+                        </li>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#"
-                          >Nosotros</a
-                        >
+                        <li class="ms-3">
+                            <a class="text-p" href="#">
+                              <i class="bi bi-facebook"></i>
+                            </a>
+                        </li>
+                      </li>
+                          
                       </li>
                     </ul>
                   </div>
@@ -89,14 +99,14 @@
               />
             </div>
           </div>
-          <div class="d-flex col col-6">
+          <div class="d-flex col col-6" data-aos="zoom-in-up">
             <img
               src="archivos\imagenes\Propuesta.jpeg"
               class="imgpropuesta w-100 rounded-3"
               alt="Propuesta"
             />
           </div>
-          <div class="col col-12 col-sm-6">
+          <div class="col col-12 col-sm-12 p-5">
             <h2 class="text-p text-center fx-bolder">Compromiso</h2>
             <p class="text-p">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos
@@ -111,25 +121,26 @@
         class="carousel slide carousel-fade container"
         data-bs-ride="carousel"
       >
-        <div class="carousel-inner">
+        <div class="carousel-inner rounded-3">
           <div class="carousel-item active">
             <img
-              src="archivos\imagenes\parrillacompleta.jpg"
-              class="d-block w-100"
+              src="archivos\imagenes\chorienvuelto.jpg"
+              class="img-fluid d-block w-100"
               alt="..."
             />
           </div>
           <div class="carousel-item">
             <img
               src="archivos\imagenes\pollocfts.jpg"
-              class="d-block w-100"
+              class="img-fluid d-block w-100"
               alt="..."
             />
           </div>
+
           <div class="carousel-item">
             <img
               src="archivos\imagenes\pollote.jpg"
-              class="d-block w-100"
+              class="img-fluid d-block w-100"
               alt="..."
             />
           </div>
@@ -153,9 +164,17 @@
           <span class="visually-hidden">Next</span>
         </button>
       </div>
+
       <div class="container p-5 text-w">
         <div class="row">
-          <div class="col col-12">
+          <div class="col col-12 col-md-6 p-3">
+            <img
+              src="archivos\imagenes\Promo2022.jpeg"
+              class="w-100 rounded-3"
+              alt="Promo2022"
+            />
+          </div>
+          <div class="col col-12 col-md-6 p-3">
             <div class="slide-fwd-center">
               <img
                 src="archivos\imagenes\fuegito.jpg"
@@ -163,9 +182,6 @@
                 alt="Nosotros"
               />
             </div>
-          </div>
-          <div class="col col-12 text-center">
-            <p class="text-p">Algo sobre Nosotros</p>
           </div>
         </div>
       </div>
@@ -205,9 +221,17 @@
       </ul>
     </footer>
     <script
+      src="https://kit.fontawesome.com/6ed304a3f6.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
   </body>
 </html>
