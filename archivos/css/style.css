@@ -1,11 +1,5 @@
 body {
-  background-color: #000208;
-  background-image: linear-gradient(
-    0deg,
-    #000208 9%,
-    #c850c0 78%,
-    #ffffff 100%
-  );
+  background-color: #23022a;
 
   margin: 0;
   padding: auto;
@@ -33,13 +27,13 @@ body {
   color: #ffc107;
   font-size: xx-large !important;
 }
-.text-white {
-  color: yellow !important;
+.text-w {
+  color: whitesmoke !important;
   text-shadow: 2px 2px 8px #584e03;
   font-size: xx-large !important;
 }
-.text-purple {
-  color: #480258;
+.text-p {
+  color: #eede05 !important;
   font-size: x-large !important;
 }
 .visible {
@@ -73,4 +67,9 @@ body {
     -webkit-transform: translateZ(160px);
     transform: translateZ(160px);
   }
+}
+
+.carousel-item {
+  overflow: hidden !important;
+  max-height: 600px !important;
 }
