@@ -1,6 +1,5 @@
 body {
   background-color: #23022a;
-
   margin: 0;
   padding: auto;
   font-family: "Bodoni Moda", serif;
@@ -8,11 +7,11 @@ body {
 
 .hero-image {
   background-image: url("/archivos/imagenes/pollo2.jpg") !important;
+  background-color: #23022a;
   height: 800px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: scroll;
   position: relative;
 }
 
