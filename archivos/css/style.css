@@ -13,6 +13,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  visibility: visible !important;
 }
 
 .hero-text {
