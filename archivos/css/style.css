@@ -1,8 +1,10 @@
 body {
   background-color: #23022a;
   margin: 0;
-  padding: auto;
+  padding: 0;
   font-family: "Bodoni Moda", serif;
+  font-size: 100%;
+  line-height: 1.4;
 }
 
 .hero-image {
@@ -23,9 +25,13 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.navbar-light .navbar-brand {
+.navbar .navbar-brand {
   color: #ffc107;
   font-size: xx-large !important;
+}
+.navbar-brand .navbar-toggler {
+  color: #ffc107;
+  border-color: #ffc107;
 }
 .text-w {
   color: whitesmoke !important;
