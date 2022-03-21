@@ -8,8 +8,7 @@ body {
 }
 
 .hero-image {
-  background-image: url("archivos/imagenes/pollo2.jpg") !important;
-  background-color: #23022a;
+  background-image: url("../archivos/imagenes/pollo2.jpg") !important;
   height: 800px;
   background-position: center;
   background-repeat: no-repeat;
