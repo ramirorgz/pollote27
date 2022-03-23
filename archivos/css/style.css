@@ -5,6 +5,7 @@ body {
   font-family: "Bodoni Moda", serif;
   font-size: 100%;
   line-height: 1.4;
+  position: relative;
 }
 
 .hero-image {
@@ -27,7 +28,7 @@ body {
 }
 .navbar .navbar-brand {
   color: #ffc107;
-  font-size: xx-large !important;
+  font-size: 4em !important;
 }
 .navbar-brand .navbar-toggler {
   color: #ffc107;
@@ -45,8 +46,15 @@ body {
 .visible {
   visibility: visible !important;
 }
+.h2 {
+  font-size: 4em !important;
+}
+p {
+  text-align: center;
+}
 .img-box img {
   animation: from-right 7 ease 3s;
+  background: rgb(189, 108, 174);
 }
 
 @keyframes from-right {
@@ -63,4 +71,77 @@ body {
 .carousel-item {
   overflow: hidden !important;
   max-height: 800px !important;
+}
+.mo-fire {
+  width: 200px;
+  height: auto;
+  position: sticky;
+  left: 85%;
+  margin-left: -100px;
+  top: 100px;
+}
+.mo-fire svg {
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+.flame {
+  animation-name: flamefly;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  opacity: 0;
+  transform-origin: 50% 50% 0;
+}
+.flame.one {
+  animation-delay: 1s;
+  animation-duration: 3s;
+}
+.flame3.two {
+  animation-duration: 5s;
+  animation-delay: 1s;
+}
+
+.flame-main {
+  animation-name: flameWobble;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.flame-main.one {
+  animation-duration: 4s;
+  animation-delay: 1s;
+}
+.flame-main.two {
+  animation-duration: 3s;
+  animation-delay: 2s;
+}
+.flame-main.three {
+  animation-duration: 2.1s;
+  animation-delay: 3s;
+}
+.flame-main.four {
+  animation-duration: 3.2s;
+  animation-delay: 4s;
+}
+.flame-main.five {
+  animation-duration: 2.5s;
+  animation-delay: 5s;
+}
+@keyframes flameWobble {
+  50% {
+    transform: scale(1, 1.2) translate(0, -30px) rotate(-2deg);
+  }
+}
+@keyframes flamefly {
+  0% {
+    transform: translate(0) rotate(180deg);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-20px, -100px) rotate(180deg);
+    opacity: 0;
+  }
 }
