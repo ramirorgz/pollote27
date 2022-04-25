@@ -28,17 +28,14 @@
     <link rel="stylesheet" href="archivos/css/style.css" />
   </head>
   <body>
-    <div class="hero-image container">
-      <div class="hero-text">
+    <!-- HEADER -->
+    <div class="bground-image header shadow p-3 mb-5 bg-body rounded">
+      <div class="navbar">
         <div class="container-fluid text-p fs-1">
-          <div class="row">
             <div class="col-sm-12">
-              <i class="fas fa-drumstick-bite"> </i>
-            </div>
-            <div class="col-sm-12">
-              <nav class="navbar navbar-expand-sm navbar-light bg-none">
-                <div class="container-fluid">
-                  <h1 class="navbar-brand text-center fw-bolder">Pollote 27</h1>
+              <nav class="navbar-menu  navbar-light bg-none">
+                <div class="navbar-expand-sm">
+                  <h1 class="navbar-brand text-center fw-bolder bg-warning">Pollote 27</h1>
                   <button
                     class="navbar-toggler col-12 border-none"
                     type="button"
@@ -48,35 +45,29 @@
                     aria-expanded="false"
                     aria-label="Toggle navigation"
                   >
-                    <span class="navbar-toggler-icon"></span>
+                    <span class="patita" ><i class="fas fa-drumstick-bite"> </i></span>
                   </button>
                   <div
                     class="collapse navbar-collapse"
                     id="navbarSupportedContent"
                   >
-                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                      <li class="nav-item">
-                        <li class="ms-3">
-                            <a class="text-p" href="https://wa.me/5491167190172?text=Hola%20pollote,%20me%20gustaria%20hacer%20un%20pedido.">
-                              <i class="bi bi-whatsapp"></i>
-                            </a>
+                    <ul class="navbar-nav">
+                      <li class="navbar-nav-item">
+                        <li class="navbar-nav-link">
+                          <a class="text-success" href="https://wa.me/5491167190172?text=Hola%20pollote,%20me%20gustaria%20hacer%20un%20pedido.">
+                            <i class="bi bi-whatsapp"></i>
+                          </a>
                         </li>
-                      </li>
-                      <li class="nav-item">
-                        <li class="ms-3">
-                            <a class="text-p" href="https://www.instagram.com/pollote27/?hl=es-la">
+                        <li class="navbar-nav-link">
+                          <a class="text-danger" href="https://www.instagram.com/pollote27/?hl=es-la">
                             <i class="bi bi-instagram"></i>
                           </a>
                         </li>
-                      </li>
-                      <li class="nav-item">
-                        <li class="ms-3">
-                            <a class="text-p" href="https://www.facebook.com/pollote27">
-                              <i class="bi bi-facebook"></i>
-                            </a>
+                        <li class="navbar-nav-link">
+                          <a href="https://www.facebook.com/pollote27">
+                            <i class="bi bi-facebook"></i>
+                          </a>
                         </li>
-                      </li>
-                          
                       </li>
                     </ul>
                   </div>
@@ -87,7 +78,28 @@
         </div>
       </div>
     </div>
+    <!-- MAIN -->
     <main>
+      <div class="container p-5 text-w">
+        <div class="row">
+          <div class="col col-12 col-md-6 p-3">
+            <img
+              src="archivos\imagenes\Promo2022.jpeg"
+              class="w-100 rounded-3"
+              alt="Promo2022"
+            />
+          </div>
+          <div class="col col-12 col-md-6 p-3">
+            <div class="slide-fwd-center">
+              <img
+                src="archivos\imagenes\fuegito.jpg"
+                class="w-100 rounded-circle"
+                alt="Nosotros"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="mo-fire">
         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="125px" height="189.864px" viewBox="0 0 125 189.864" enable-background="new 0 0 125 189.864" xml:space="preserve">
       <path class="flame-main" fill="#F36E21" d="M76.553,186.09c0,0-10.178-2.976-15.325-8.226s-9.278-16.82-9.278-16.82s-0.241-6.647-4.136-18.465
@@ -184,26 +196,7 @@
           <span class="visually-hidden">Next</span>
         </button>
       </div>
-      <div class="container p-5 text-w">
-        <div class="row">
-          <div class="col col-12 col-md-6 p-3">
-            <img
-              src="archivos\imagenes\Promo2022.jpeg"
-              class="w-100 rounded-3"
-              alt="Promo2022"
-            />
-          </div>
-          <div class="col col-12 col-md-6 p-3">
-            <div class="slide-fwd-center">
-              <img
-                src="archivos\imagenes\fuegito.jpg"
-                class="w-100 rounded-circle"
-                alt="Nosotros"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
+
     </main>
     <footer
       class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top"

@@ -8,31 +8,39 @@ body {
   position: relative;
 }
 
-.hero-image {
+.bground-image {
   background-image: url("../imagenes/pollo2.jpg") !important;
   background-color: #23022a;
   height: 800px;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover !important;
   position: relative;
   visibility: visible !important;
 }
 
-.hero-text {
+.navbar {
   text-align: center;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.navbar .navbar-brand {
-  color: #ffc107;
-  font-size: 4em !important;
+.navbar-menu,
+.navbar-brand {
+  margin: 0 1rem;
+  color: #54025c !important;
+  font-size: 3rem;
+  border-radius: 50px;
 }
-.navbar-brand .navbar-toggler {
+.navbar-brand,
+.navbar-toggler {
   color: #ffc107;
   border-color: #ffc107;
+}
+.patita {
+  color: #ffc107 !important;
+  font-size: 3rem;
 }
 .text-w {
   color: whitesmoke !important;
@@ -40,8 +48,16 @@ body {
   font-size: xx-large !important;
 }
 .text-p {
-  color: #eede05 !important;
-  font-size: x-large !important;
+  color: #ffc107 !important;
+  text-align: center;
+}
+.navbar-nav {
+  background-color: rgb(245, 241, 181) !important;
+  border-radius: 50px;
+  text-align: center;
+}
+.navbar-nav-link {
+  margin: 5px 10px 5px;
 }
 .visible {
   visibility: visible !important;
@@ -143,5 +159,17 @@ p {
   100% {
     transform: translate(-20px, -100px) rotate(180deg);
     opacity: 0;
+  }
+}
+/* MEDIAQUERIES PANTALLAS MAS GRANDES */
+
+@media (min-width: 576px) {
+  .navbar .navbar-brand {
+    color: #ffc107;
+    font-size: 4rem !important;
+  }
+  #navbarSupportedContent {
+    margin-top: 50px;
+    justify-content: center !important;
   }
 }
