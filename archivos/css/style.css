@@ -89,10 +89,10 @@ p {
   max-height: 800px !important;
 }
 .mo-fire {
-  width: 200px;
+  width: 100%;
   height: auto;
   position: sticky;
-  left: 85%;
+  left: 65%;
   margin-left: -100px;
   top: 100px;
 }
