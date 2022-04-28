@@ -10,24 +10,66 @@ navToggle.addEventListener("click", () => {
     navToggle.setAttribute("aria-label", "AbrirMenu");
   }
 });
-/* COMENZAMOS */
-
-class Promos {
-  constructor(nombre, precio) {
+/* MAIN */
+class Cliente {
+  constructor(nombre, domicilio, telefono, pago) {
     this.nombre = nombre;
-    this.precio = precio;
+    this.domicilio = domicilio;
+    this.telefono = telefono;
+    this.pago = pago;
   }
 }
+/* 
+VARIABLE */
 
-let listaPromos = [];
+let listaClientes = [];
+let btnGuardar = document.getElementById("btnGuardar");
 
-const agregarPromo = () => {
-  let promo = new Promos(nombre, precio);
-  listaPromos.push(promo);
+/* FUNCIONES */
+
+/* crear cliente */
+
+const crearCLiente = () => {
+  let nombre = document.querySelector("#nombre").value;
+  let domicilio = document.querySelector("#domicilio").value;
+  let telefono = document.querySelector("#telefono").value;
+  let pago = document.querySelector("#pago").value;
+
+  const nuevoCliente = new Cliente(nombre, domicilio, telefono, pago);
+  console.log(nuevoCliente);
+
+  let listaClientes2 = [];
+  if (localStorage.getItem("Clientes") != null) {
+    listaClientes2 = JSON.parse(localStorage.getItem("Clientes"));
+    listaClientes2.push(nuevoCliente);
+    localStorage.setItem("Clientes", JSON.stringify(listaClientes2));
+  } else {
+    listaClientes.push(nuevoCliente);
+    localStorage.setItem("Clientes", JSON.stringify(listaClientes));
+  }
+  listaClientes.push(nuevoCliente);
+  return nuevoCliente;
 };
 
-listaPromos.push(new Promos("promo1", 1400));
-listaPromos.push(new Promos("promo2", 1500));
-listaPromos.push(new Promos("promo3", 1700));
+const verificarStorage = () => {
+  let lista = [];
+  if (localStorage.getItem("Clientes") != null) {
+    lista = JSON.parse(localStorage.getItem("Clientes"));
+    return lista;
+  }
+};
 
-console.log(listaPromos);
+const guardar = () => {
+  crearCLiente();
+  if (verificarStorage() != undefined) {
+    localStorage.setItem("Clientes"), JSON.stringify(verificarStorage());
+  } else {
+    localStorage.setItem("Residentes", JSON.stringify(listaClientes));
+  }
+};
+
+/* EVENTOS */
+btnGuardar.addEventListener("click", (e) => {
+  e.preventDefault();
+  guardar();
+});
