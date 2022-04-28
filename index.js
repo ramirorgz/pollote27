@@ -10,3 +10,24 @@ navToggle.addEventListener("click", () => {
     navToggle.setAttribute("aria-label", "AbrirMenu");
   }
 });
+/* COMENZAMOS */
+
+class Promos {
+  constructor(nombre, precio) {
+    this.nombre = nombre;
+    this.precio = precio;
+  }
+}
+
+let listaPromos = [];
+
+const agregarPromo = () => {
+  let promo = new Promos(nombre, precio);
+  listaPromos.push(promo);
+};
+
+listaPromos.push(new Promos("promo1", 1400));
+listaPromos.push(new Promos("promo2", 1500));
+listaPromos.push(new Promos("promo3", 1700));
+
+console.log(listaPromos);

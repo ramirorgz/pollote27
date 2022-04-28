@@ -1,5 +1,5 @@
 body {
-  background-color: #23022a;
+  background-color: #503954;
   margin: 0;
   padding: 0;
   font-family: "Bodoni Moda", serif;
@@ -10,7 +10,7 @@ body {
 
 .bground-image {
   background-image: url("../imagenes/pollo2.jpg") !important;
-  background-color: #23022a;
+  background-color: #503954;
   height: 800px;
   background-position: center;
   background-repeat: no-repeat;
@@ -59,7 +59,7 @@ body {
 .navbar-nav-link {
   margin: 5px 10px 5px;
 }
-.visible {
+/* .visible {
   visibility: visible !important;
 }
 .h2 {
@@ -70,7 +70,7 @@ p {
 }
 .img-box img {
   animation: from-right 7 ease 3s;
-  background: rgb(189, 108, 174);
+  background: none;
 }
 
 @keyframes from-right {
@@ -83,7 +83,7 @@ p {
     transform: translateX(0px);
   }
 }
-
+ */
 .carousel-item {
   overflow: hidden !important;
   max-height: 800px !important;
