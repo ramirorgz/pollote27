@@ -84,9 +84,9 @@ p {
   }
 }
  */
-.carousel-item {
-  overflow: hidden !important;
-  max-height: 800px !important;
+#phone {
+  font-size: 3.5rem !important;
+  --bs-gutter-x: none;
 }
 .mo-fire {
   width: 100px;
@@ -171,5 +171,8 @@ p {
   #navbarSupportedContent {
     margin-top: 50px;
     justify-content: center !important;
+  }
+  #aboutUs {
+    font-size: 24px !important;
   }
 }
