@@ -25,6 +25,14 @@ VARIABLE */
 let listaClientes = [];
 let btnGuardar = document.getElementById("btnGuardar");
 
+let listaPromos = [
+  { nombre: "promo1", precio: 1300 },
+  { nombre: "promo2", precio: 1500 },
+  { nombre: "promo3", precio: 1700 },
+  { nombre: "promo4", precio: 700 },
+  { nombre: "promo5", precio: 400 },
+  { nombre: "promo6", precio: 1000 },
+];
 /* FUNCIONES */
 
 /* crear cliente */
