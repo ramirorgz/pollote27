@@ -1,10 +1,11 @@
-const navToggle = document.querySelector(".nav-toggler");
+const navToggle = document.querySelector(".navbar-toggler");
 const navMenu = document.querySelector(".navbar-nav");
 
-///////// CUANDO MENU ESTE ABIERTO, COLOCAR ARIA-LABEL "CERRAR MENU"; DE LO CONTRARIO "ABRIR MENU"/////
 navToggle.addEventListener("click", () => {
   navMenu.classList.toggle("navbar-nav_visible");
-  if (navMenu.classList.contains("nav-menu_visible")) {
+  ///////// CUANDO MENU ESTE ABIERTO, COLOCAR ARIA-LABEL "CERRAR MENU"; DE LO CONTRARIO "ABRIR MENU"/////
+
+  if (navMenu.classList.contains("navbar-nav_visible")) {
     navToggle.setAttribute("aria-label", "CerrarMenu");
   } else {
     navToggle.setAttribute("aria-label", "AbrirMenu");

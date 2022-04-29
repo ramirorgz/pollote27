@@ -10,7 +10,7 @@ body {
 
 .bground-image {
   background-image: url("../imagenes/pollo2.jpg") !important;
-  background-color: #503954;
+  background-color: none;
   height: 800px;
   background-position: center;
   background-repeat: no-repeat;
@@ -33,13 +33,12 @@ body {
   font-size: 3rem;
   border-radius: 50px;
 }
-.navbar-brand,
-.navbar-toggler {
-  color: #ffc107;
-  border-color: #ffc107;
+.navbar-brand {
+  background-color: rgb(245, 241, 181) !important;
 }
 .patita {
-  color: #ffc107 !important;
+  background-color: none;
+  color: rgb(241, 230, 113) !important;
   font-size: 3rem;
 }
 .text-w {
@@ -47,10 +46,7 @@ body {
   text-shadow: 2px 2px 8px #584e03;
   font-size: xx-large !important;
 }
-.text-p {
-  color: #ffc107 !important;
-  text-align: center;
-}
+
 .navbar-nav {
   background-color: rgb(245, 241, 181) !important;
   border-radius: 50px;
@@ -88,6 +84,7 @@ p {
 #phone {
   font-size: 3.5rem !important;
   --bs-gutter-x: none;
+  background-color: rgb(245, 241, 181) !important;
 }
 .mo-fire {
   width: 100px;
