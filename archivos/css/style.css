@@ -174,4 +174,7 @@ p {
   #aboutUs {
     font-size: 24px !important;
   }
+  .navbar-collapse {
+    justify-content: center;
+  }
 }
