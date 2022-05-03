@@ -71,7 +71,7 @@ const verificarStorage = () => {
 const guardar = () => {
   crearCLiente();
   if (verificarStorage() != undefined) {
-    localStorage.setItem("Clientes"), JSON.stringify(verificarStorage());
+    localStorage.setItem("Clientes", JSON.stringify(verificarStorage()));
   } else {
     localStorage.setItem("Residentes", JSON.stringify(listaClientes));
   }
@@ -82,3 +82,9 @@ btnGuardar.addEventListener("click", (e) => {
   e.preventDefault();
   guardar();
 });
+
+// OPTIMIZACION CON OPERADORES AVANZADOS///
+
+console.log(
+  localStorage.getItem("Clientes") || "Estamos esperando el primer cliente..."
+);
