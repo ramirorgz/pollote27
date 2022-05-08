@@ -12,6 +12,7 @@ navToggle.addEventListener("click", () => {
   }
 });
 /* MAIN */
+/* CREO EL OBJETO */
 class Cliente {
   constructor(nombre, domicilio, telefono, pago) {
     this.nombre = nombre;
@@ -36,7 +37,7 @@ let listaPromos = [
 ];
 /* FUNCIONES */
 
-/* crear cliente */
+/*  */
 
 const crearCLiente = () => {
   let nombre = document.querySelector("#nombre").value;
@@ -46,7 +47,7 @@ const crearCLiente = () => {
 
   const nuevoCliente = new Cliente(nombre, domicilio, telefono, pago);
   console.log(nuevoCliente);
-
+  /* GUARDANDO CLIENTES EN LA LISTA */
   let listaClientes2 = [];
   if (localStorage.getItem("Clientes") != null) {
     listaClientes2 = JSON.parse(localStorage.getItem("Clientes"));
