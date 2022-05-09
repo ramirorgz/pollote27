@@ -27,7 +27,7 @@ VARIABLE */
 let listaClientes = [];
 let btnGuardar = document.getElementById("btnGuardar");
 
-let listaPromos = [
+let promos = [
   { nombre: "promo1", precio: 1300 },
   { nombre: "promo2", precio: 1500 },
   { nombre: "promo3", precio: 1700 },
@@ -35,6 +35,24 @@ let listaPromos = [
   { nombre: "promo5", precio: 400 },
   { nombre: "promo6", precio: 1000 },
 ];
+let pollos = [
+  { nombre: "chico", precio: 900 },
+  { nombre: "mediano", precio: 1100 },
+  { nombre: "grande", precio: 1300 },
+];
+let sanguches = [
+  { nombre: "bondiola", precio: 500 },
+  { nombre: "vacio", precio: 500 },
+  { nombre: "choripan", precio: 500 },
+  { nombre: "morcipan", precio: 500 },
+];
+let cheff = [
+  { nombre: "risoles", precio: 600 },
+  { nombre: "tortilla", precio: 700 },
+  { nombre: "fritas", precio: 500 },
+];
+/* ESTE ES EL MENU COMPLETO */
+let menuCompleto = pollos.concat(sanguches, cheff);
 /* FUNCIONES */
 
 /*  */
