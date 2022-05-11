@@ -1,5 +1,9 @@
+/* 
+VARIABLE */
 const navToggle = document.querySelector(".navbar-toggler");
 const navMenu = document.querySelector(".navbar-nav");
+let listaClientes = [];
+let btnGuardar = document.getElementById("btnGuardar");
 
 navToggle.addEventListener("click", () => {
   navMenu.classList.toggle("navbar-nav_visible");
@@ -21,11 +25,6 @@ class Cliente {
     this.pago = pago;
   }
 }
-/* 
-VARIABLE */
-
-let listaClientes = [];
-let btnGuardar = document.getElementById("btnGuardar");
 
 let promos = [
   { nombre: "promo1", precio: 1300 },
