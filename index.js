@@ -3,7 +3,7 @@ const navToggle = document.querySelector(".navbar-toggler");
 const navMenu = document.querySelector(".navbar-nav");
 let listaClientes = [];
 let btnGuardar = document.querySelector("#btnGuardar");
-const btnComprar = document.querySelectorAll(".btnComprar");
+let btnComprar = document.querySelectorAll(".btnComprar");
 const containerData = document.querySelector(".containerDatos");
 
 /* CUANDO SE COMPLETE FORMULARIO, ENVIAR EL PEDIDO DESEADO AL LOCAL*/
@@ -62,8 +62,10 @@ const crearCLiente = () => {
   const nuevoCliente = new Cliente(nombre, domicilio, telefono, pago);
   console.log(nuevoCliente);
 
-  /* GUARDA CLIENTES EN LA LISTA */
   let listaClientes2 = [];
+
+  /* GUARDA CLIENTES EN LA LISTA */
+
   if (localStorage.getItem("Clientes") != null) {
     listaClientes2 = JSON.parse(localStorage.getItem("Clientes"));
     listaClientes2.push(nuevoCliente);
@@ -89,10 +91,12 @@ const guardar = () => {
   if (verificarStorage() != undefined) {
     localStorage.setItem("Clientes", JSON.stringify(verificarStorage()));
   } else {
-    localStorage.setItem("Residentes", JSON.stringify(listaClientes));
+    localStorage.setItem("Clientes", JSON.stringify(listaClientes));
   }
 };
+
 /* TRAIGO LOS CLIENTES DESDE EL ARRAY JSON */
+
 const datosClientes = () => {
   fetch("clientes.json")
     .then((response) => response.json())
