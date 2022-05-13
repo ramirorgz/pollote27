@@ -1,11 +1,11 @@
-/* 
-VARIABLE */
+/* VARIABLE */
 const navToggle = document.querySelector(".navbar-toggler");
 const navMenu = document.querySelector(".navbar-nav");
 let listaClientes = [];
 let btnGuardar = document.querySelector("#btnGuardar");
 const btnComprar = document.querySelectorAll(".btnComprar");
 const containerData = document.querySelector(".containerDatos");
+
 /* CUANDO SE COMPLETE FORMULARIO, ENVIAR EL PEDIDO DESEADO AL LOCAL*/
 const btnPedidoRealizado = document.querySelector("#enviarPedido");
 
@@ -96,22 +96,21 @@ const guardar = () => {
 const datosClientes = () => {
   fetch("clientes.json")
     .then((response) => response.json())
-    .then((resultado) => {
-      let data = JSON.parse(resultado);
-      console.log(data);
-      /*       data.forEach((cliente) => {
+    .then((result) => {
+      let data = result;
+      /*console.log(data);*/
+      data.forEach((cliente) => {
         containerData.innerHTML += `
-            <h4>${cliente.nombre}</h4>
-            <p>${cliente.domicilio}</p>
-            <p>${cliente.telefono}</p>
-        `;
-      }); */
+              <h4>${cliente.nombre}</h4>
+              <p>${cliente.domicilio}</p>
+              <p>${cliente.telefono}</p>
+            `;
+      });
     })
-    .catch(
-      (error) => console.log(error)
-      /* (containerData.innerHTML += `<div>Por favor, ingrese sus datos para enviarle el pedido.</div>`) */
-    );
+    .catch((error) => console.log(error));
+  /* (containerData.innerHTML += `<div>Por favor, ingrese sus datos para enviarle el pedido.</div>`) */
 };
+
 /* EVENTOS */
 /* CLICK EN COMPRAR, ABRIR FORMULARIO */
 
@@ -126,10 +125,10 @@ navToggle.addEventListener("click", () => {
   }
 });
 
-btnComprar.onclick = (e) => {
+btnComprar.addEventListener("click", (e) => {
   e.preventDefault();
   datosClientes();
-};
+});
 
 btnGuardar.addEventListener("click", (e) => {
   e.preventDefault();
