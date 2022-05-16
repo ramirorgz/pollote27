@@ -21,14 +21,7 @@ class Cliente {
   }
 }
 /* CREA ARRAY DE PRODUCTOS */
-let promos = [
-  { nombre: "promo1", precio: 1300 },
-  { nombre: "promo2", precio: 1500 },
-  { nombre: "promo3", precio: 1700 },
-  { nombre: "promo4", precio: 700 },
-  { nombre: "promo5", precio: 400 },
-  { nombre: "promo6", precio: 1000 },
-];
+
 let pollos = [
   { nombre: "chico", precio: 900 },
   { nombre: "mediano", precio: 1100 },
@@ -95,26 +88,26 @@ const guardar = () => {
   }
 };
 
-/* TRAIGO LOS CLIENTES DESDE EL ARRAY JSON */
+/* TRAIGO LAS PROMOS DESDE EL ARRAY JSON */
 
-const datosClientes = () => {
-  fetch("clientes.json")
+const promos = () => {
+  fetch("promos.json")
     .then((response) => response.json())
     .then((result) => {
       let data = result;
       /*console.log(data);*/
-      data.forEach((cliente) => {
+      data.forEach((promo) => {
         containerData.innerHTML += `
-              <h4>${cliente.nombre}</h4>
-              <p>${cliente.domicilio}</p>
-              <p>${cliente.telefono}</p>
+              <h4>${promo.nombre}</h4>
+              <p>${promo.precio}</p>
+              
             `;
       });
     })
     .catch((error) => console.log(error));
   /* (containerData.innerHTML += `<div>Por favor, ingrese sus datos para enviarle el pedido.</div>`) */
 };
-console.log(datosClientes());
+console.log(promos());
 /* EVENTOS */
 /* CLICK EN COMPRAR, ABRIR FORMULARIO */
 
