@@ -3,7 +3,7 @@ const navToggle = document.querySelector(".navbar-toggler");
 const navMenu = document.querySelector(".navbar-nav");
 let listaClientes = [];
 let btnGuardar = document.querySelector("#btnGuardar");
-let btnComprar = document.querySelectorAll(".btnComprar");
+let btnComprar = document.getElementsByClassName(".btnComprar");
 const containerData = document.querySelector(".containerDatos");
 
 /* CUANDO SE COMPLETE FORMULARIO, ENVIAR EL PEDIDO DESEADO AL LOCAL*/
@@ -114,7 +114,7 @@ const datosClientes = () => {
     .catch((error) => console.log(error));
   /* (containerData.innerHTML += `<div>Por favor, ingrese sus datos para enviarle el pedido.</div>`) */
 };
-
+console.log(datosClientes());
 /* EVENTOS */
 /* CLICK EN COMPRAR, ABRIR FORMULARIO */
 
@@ -129,10 +129,10 @@ navToggle.addEventListener("click", () => {
   }
 });
 
-btnComprar.addEventListener("click", (e) => {
+/*btnComprar.addEventListener("click", () => {
   e.preventDefault();
   datosClientes();
-});
+});*/
 
 btnGuardar.addEventListener("click", (e) => {
   e.preventDefault();
