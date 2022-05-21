@@ -1,26 +1,38 @@
-/* VARIABLE */
+/* VARIABLES GLOBALES*/
+
 const navToggle = document.querySelector(".navbar-toggler");
 const navMenu = document.querySelector(".navbar-nav");
-let listaClientes = [];
-let btnGuardar = document.querySelector("#btnGuardar");
-let btnComprar = document.getElementsByClassName(".btnComprar");
-const containerData = document.querySelector(".containerDatos");
 
-/* CUANDO SE COMPLETE FORMULARIO, ENVIAR EL PEDIDO DESEADO AL LOCAL*/
-const btnPedidoRealizado = document.querySelector("#enviarPedido");
+let listaPromociones = [];
+const containPromos = document.querySelector("#cont__promos");
+const btnAbrirForm = document.getElementById("btn__abrirForm");
+const formulario = document.getElementById("data__form");
+let btnEnviar = document.querySelector("#btnEnviar");
+
+let listaClientes = [];
+let nombre = document.getElementById("nombre").value;
+let domicilio = document.getElementById("domicilio").value;
+let telefono = document.getElementById("telefono").value;
 
 /* MAIN */
 
-/* CREA EL CLIENTE */
+/* OBJETOS */
 class Cliente {
-  constructor(nombre, domicilio, telefono, pago) {
+  constructor(nombre, domicilio, telefono) {
     this.nombre = nombre;
     this.domicilio = domicilio;
     this.telefono = telefono;
-    this.pago = pago;
   }
 }
-/* CREA ARRAY DE PRODUCTOS */
+class Promociones {
+  constructor(id, nombre, precio) {
+    this.id = id;
+    this.nombre = nombre;
+    this.precio = precio;
+  }
+}
+
+/* ARRAY DE PRODUCTOS VARIOS*/
 
 let pollos = [
   { nombre: "chico", precio: 900 },
@@ -39,22 +51,19 @@ let cheff = [
   { nombre: "fritas", precio: 500 },
 ];
 
-/* ESTE ES EL MENU COMPLETO */
+/* MENU COMPLETO */
 let menuCompleto = pollos.concat(sanguches, cheff);
 
 /* FUNCIONES */
 
-/* FORMULARIO */
-
+/* TOMA LOS DATOS INGRESADOS EN EL FORMULARIO Y CREA EL CLIENTE */
 const crearCLiente = () => {
-  let nombre = document.querySelector("#nombre").value;
-  let domicilio = document.querySelector("#domicilio").value;
-  let telefono = document.querySelector("#telefono").value;
-  let pago = document.querySelector("#pago").value;
+  let nombre = document.querySelector("#nombre").value.toUpperCase();
+  let domicilio = document.querySelector("#domicilio").value.toUpperCase();
+  let telefono = parseInt(document.querySelector("#telefono").value);
 
-  const nuevoCliente = new Cliente(nombre, domicilio, telefono, pago);
-  console.log(nuevoCliente);
-
+  const nuevoCliente = new Cliente(nombre, domicilio, telefono);
+  /* ARRAY DENTRO DE LA FUNCION, PARA VERIFICAR SI HAY CLIENTES YA INGRESADOS EN LA LISTA */
   let listaClientes2 = [];
 
   /* GUARDA CLIENTES EN LA LISTA */
@@ -64,11 +73,31 @@ const crearCLiente = () => {
     listaClientes2.push(nuevoCliente);
     localStorage.setItem("Clientes", JSON.stringify(listaClientes2));
   } else {
+    localStorage.getItem("Clientes") || "Esperando al primer cliente...";
     listaClientes.push(nuevoCliente);
     localStorage.setItem("Clientes", JSON.stringify(listaClientes));
   }
   listaClientes.push(nuevoCliente);
   return nuevoCliente;
+};
+/* VALIDEMOS LOS DATOS DEL FORMULARIO */
+let datosValidos = false;
+
+const validarDatos = () => {
+  let nombre = document.querySelector("#nombre").value.toUpperCase();
+  if (nombre != "" && nombre.length > 3) {
+    datosValidos = true;
+  }
+  let domicilio = document.querySelector("#domicilio").value.toUpperCase();
+  if (domicilio != "" && domicilio != null) {
+    datosValidos = true;
+  }
+  let telefono = parseInt(document.querySelector("#telefono").value);
+  if (telefono != "" && telefono.length >= 8 && telefono != isNaN()) {
+    datosValidos = true;
+  } else {
+    datosValidos = false;
+  }
 };
 
 const verificarStorage = () => {
@@ -79,6 +108,7 @@ const verificarStorage = () => {
   }
 };
 
+/* GUARDO LOS CLIENTES EN EL LOCALSTORAGE */
 const guardar = () => {
   crearCLiente();
   if (verificarStorage() != undefined) {
@@ -87,33 +117,36 @@ const guardar = () => {
     localStorage.setItem("Clientes", JSON.stringify(listaClientes));
   }
 };
-
-/* TRAIGO LAS PROMOS DESDE EL ARRAY JSON */
+/* JSON */
+/* TRAIGO LAS PROMOS DESDE EL ARRAY PREDEFINIDO EN JSON */
 
 const promos = () => {
   fetch("promos.json")
     .then((response) => response.json())
     .then((result) => {
       let data = result;
-      /*console.log(data);*/
+      console.log(data);
       data.forEach((promo) => {
-        containerData.innerHTML += `
+        let listapromo = document.createElement("card");
+        listapromo.innerHTML += `
               <h4>${promo.nombre}</h4>
-              <p>${promo.precio}</p>
+              <p>Precio $${promo.precio}</p>
+              <img>${promo.imagen}</img>
               
             `;
+        document.querySelector(containPromos).appendChild(listapromo);
       });
     })
     .catch((error) => console.log(error));
-  /* (containerData.innerHTML += `<div>Por favor, ingrese sus datos para enviarle el pedido.</div>`) */
 };
-console.log(promos());
-/* EVENTOS */
-/* CLICK EN COMPRAR, ABRIR FORMULARIO */
+/* console.log(promos()); */
 
+/* EVENTOS */
+
+/* ABRIR EL MENU NAV */
 navToggle.addEventListener("click", () => {
   navMenu.classList.toggle("navbar-nav_visible");
-  ///////// CUANDO MENU ESTE ABIERTO, COLOCAR ARIA-LABEL "CERRAR MENU"; DE LO CONTRARIO "ABRIR MENU"/////
+  /// CUANDO MENU ESTE ABIERTO, COLOCAR ARIA-LABEL "CERRAR MENU"; DE LO CONTRARIO "ABRIR MENU"///
 
   if (navMenu.classList.contains("navbar-nav_visible")) {
     navToggle.setAttribute("aria-label", "CerrarMenu");
@@ -122,21 +155,38 @@ navToggle.addEventListener("click", () => {
   }
 });
 
-/*btnComprar.addEventListener("click", () => {
-  e.preventDefault();
-  datosClientes();
-});*/
+/* BOTONES */
+const estadoFormulario = {
+  mostrar: true,
+};
 
-btnGuardar.addEventListener("click", (e) => {
+/* CLICK EN COMPRAR, ABRIR FORMULARIO */
+
+btnAbrirForm.onclick = (e) => {
   e.preventDefault();
-  guardar();
+  if (estadoFormulario.mostrar) {
+    formulario.style.opacity = 1;
+    estadoFormulario.mostrar = false;
+    btnAbrirForm.style.opacity = 0;
+  } else {
+    formulario.style.opacity = 0;
+    estadoFormulario.mostrar = true;
+    btnAbrirForm.style.opacity = 1;
+  }
+};
+
+/* CLICK EN REALIZAR PEDIDO PARA ENVIAR LA INFO DE CONTACTO */
+
+btnEnviar.addEventListener("click", (e) => {
+  validarDatos();
+  if (datosValidos) {
+    guardar();
+  } else {
+    formulario.innerHTML += `<div>Por favor, ingrese sus datos para enviarle el pedido.</div>`;
+  }
 });
 
 // OPTIMIZACION CON OPERADORES AVANZADOS///
-
-console.log(
-  localStorage.getItem("Clientes") || "Estamos esperando el primer cliente..."
-);
 
 /* QUE LOS DATOS DEL FORMULARIO JUNTO CON EL PRODUCTO ELEGIDO SE IMPRIMA EN UN DIV, MODO TEXTO */
 /* ENVIAR ESE DIV POR WHATSAPP O MAIL */

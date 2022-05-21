@@ -1,8 +1,32 @@
 [
-  { "nombre": "promo1", "precio": 1300 },
-  { "nombre": "promo2", "precio": 1500 },
-  { "nombre": "promo3", "precio": 1700 },
-  { "nombre": "promo4", "precio": 1000 },
-  { "nombre": "promo5", "precio": 800 },
-  { "nombre": "promo6", "precio": 700 }
+  {
+    "nombre": "promo1",
+    "precio": 1300,
+    "imagen": "src=./archivos/imagenes/polloAParri.jpg"
+  },
+  {
+    "nombre": "promo2",
+    "precio": 1500,
+    "imagen": "src=./archivos/imagenes/patasDePolloConFritas.jpg"
+  },
+  {
+    "nombre": "promo3",
+    "precio": 1700,
+    "imagen": "src=./archivos/imagenes/PollocFts1.jpg"
+  },
+  {
+    "nombre": "promo4",
+    "precio": 1000,
+    "imagen": "src=./archivos/imagenes/Sanguche.jpg"
+  },
+  {
+    "nombre": "promo5",
+    "precio": 800,
+    "imagen": "src=./archivos/imagenes/Choripan1.jpg"
+  },
+  {
+    "nombre": "promo6",
+    "precio": 700,
+    "imagen": "src=./archivos/imagenes/risoles.jpg"
+  }
 ]
