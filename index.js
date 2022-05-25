@@ -3,32 +3,39 @@
 const navToggle = document.querySelector(".navbar-toggler");
 const navMenu = document.querySelector(".navbar-nav");
 
+const btnPromos = document.querySelector("#ver_promos");
+const containPromos = document.querySelector("#promociones .row");
 let listaPromociones = [];
-const containPromos = document.querySelector("#cont__promos");
-const btnAbrirForm = document.getElementById("btn__abrirForm");
-const formulario = document.getElementById("data__form");
+
+const btnAbrirForm = document.getElementById("btn__alformulario");
+const formulario = document.getElementById("data__formulario");
 let btnEnviar = document.querySelector("#btnEnviar");
 
-let listaClientes = [];
-let nombre = document.getElementById("nombre").value;
-let domicilio = document.getElementById("domicilio").value;
+let listaClientes = localStorage.getItem("Clientes") || [];
+let nombre = document.getElementById("nombre").value.toUpperCase();
+let domicilio = document.getElementById("domicilio").value.toUpperCase();
 let telefono = document.getElementById("telefono").value;
+
+const btnUs = document.querySelector("#aboutUs");
+const containerUs = document.querySelector(".container__us");
 
 /* MAIN */
 
-/* OBJETOS */
+/* OBJETOS Y CLASES */
+
+class Promociones {
+  constructor(id, imagen, nombre, precio) {
+    this.id = id;
+    this.imagen = imagen;
+    this.nombre = nombre;
+    this.precio = precio;
+  }
+}
 class Cliente {
   constructor(nombre, domicilio, telefono) {
     this.nombre = nombre;
     this.domicilio = domicilio;
     this.telefono = telefono;
-  }
-}
-class Promociones {
-  constructor(id, nombre, precio) {
-    this.id = id;
-    this.nombre = nombre;
-    this.precio = precio;
   }
 }
 
@@ -81,24 +88,32 @@ const crearCLiente = () => {
   return nuevoCliente;
 };
 /* VALIDEMOS LOS DATOS DEL FORMULARIO */
-let datosValidos = false;
+/* 
+$("#nombre").on("keyup", function () {
+  validarDatos();
+});
+$("#domicilio").on("keyup", function () {
+  validarDatos();
+});
+$("#telefono").on("keyup", function () {
+  validarDatos();
+}); */
 
 const validarDatos = () => {
-  let nombre = document.querySelector("#nombre").value.toUpperCase();
-  if (nombre != "" && nombre.length > 3) {
-    datosValidos = true;
-  }
-  let domicilio = document.querySelector("#domicilio").value.toUpperCase();
-  if (domicilio != "" && domicilio != null) {
-    datosValidos = true;
-  }
-  let telefono = parseInt(document.querySelector("#telefono").value);
-  if (telefono != "" && telefono.length >= 8 && telefono != isNaN()) {
-    datosValidos = true;
+  if (
+    $("#nombre").val().length > 0 &&
+    $("#domicilio").val().length > 0 &&
+    $("#telefono").val().length >= 8
+  ) {
+    guardar();
+    $(".error").removeClass("show");
   } else {
-    datosValidos = false;
+    $(".error").addClass("show");
   }
 };
+
+/* ENVIAR FORMULARIO CON DATOS DEL CLIENTE AL SERVIDOR */
+const enviarDatos = () => {};
 
 const verificarStorage = () => {
   let lista = [];
@@ -117,16 +132,28 @@ const guardar = () => {
     localStorage.setItem("Clientes", JSON.stringify(listaClientes));
   }
 };
-/* JSON */
+
 /* TRAIGO LAS PROMOS DESDE EL ARRAY PREDEFINIDO EN JSON */
 
 const promos = () => {
   fetch("promos.json")
     .then((response) => response.json())
     .then((result) => {
+      let promos = result;
+      promos.forEach((promocion) => {
+        containPromos.innerHTML += `
+      <card><img>${promocion.imagen}.src</img>
+            <h3>${promocion.nombre}</h3>
+            <small>$${promocion.precio}</small>
+      </card>
+      `;
+      });
+    })
+    .catch((error) => console.log(error));
+  /* .then((result) => {
       let data = result;
-      console.log(data);
-      data.forEach((promo) => {
+      /* console.log(data); */
+  /* data.forEach((promo) => {
         let listapromo = document.createElement("card");
         listapromo.innerHTML += `
               <h4>${promo.nombre}</h4>
@@ -137,30 +164,46 @@ const promos = () => {
         document.querySelector(containPromos).appendChild(listapromo);
       });
     })
+    .catch((error) => console.log(error)); */
+};
+
+/* INFORMACION DEL LOCAL / REFERENCIAS / DATOS */
+
+const renderUs = () => {
+  fetch("nosotros.txt")
+    .then((response) => response.text())
+    .then(
+      (result) =>
+        (containerUs.innerHTML = `<p class="fs-2 border text-light">${result}</p>`)
+    )
     .catch((error) => console.log(error));
 };
-/* console.log(promos()); */
 
-/* EVENTOS */
+/* EVENTOS BOTONES*/
 
-/* ABRIR EL MENU NAV */
+/* MENU INCLUSIVO */
 navToggle.addEventListener("click", () => {
   navMenu.classList.toggle("navbar-nav_visible");
   /// CUANDO MENU ESTE ABIERTO, COLOCAR ARIA-LABEL "CERRAR MENU"; DE LO CONTRARIO "ABRIR MENU"///
 
   if (navMenu.classList.contains("navbar-nav_visible")) {
-    navToggle.setAttribute("aria-label", "CerrarMenu");
+    navToggle.setAttribute("aria-label", "MenuCerrado");
   } else {
-    navToggle.setAttribute("aria-label", "AbrirMenu");
+    navToggle.setAttribute("aria-label", "MenuAbierto");
   }
 });
 
-/* BOTONES */
 const estadoFormulario = {
   mostrar: true,
 };
 
-/* CLICK EN COMPRAR, ABRIR FORMULARIO */
+/* VER PROMOCIONES */
+btnPromos.addEventListener("click", (e) => {
+  e.preventDefault();
+  promos();
+});
+
+/* CLICK EN ABRIR FORMULARIO */
 
 btnAbrirForm.onclick = (e) => {
   e.preventDefault();
@@ -176,17 +219,22 @@ btnAbrirForm.onclick = (e) => {
 };
 
 /* CLICK EN REALIZAR PEDIDO PARA ENVIAR LA INFO DE CONTACTO */
+let datosValidos = false;
 
-btnEnviar.addEventListener("click", (e) => {
+btnEnviar.addEventListener("click", () => {
   validarDatos();
   if (datosValidos) {
     guardar();
+    enviarDatos();
   } else {
-    formulario.innerHTML += `<div>Por favor, ingrese sus datos para enviarle el pedido.</div>`;
+    formulario.innerHTML += `<div class="error text-light fs-4 bg-dark">Por favor, ingrese sus datos para enviarle el pedido.</div>`;
   }
+  return datosValidos;
 });
 
-// OPTIMIZACION CON OPERADORES AVANZADOS///
+btnUs.addEventListener("click", (e) => {
+  e.preventDefault();
+  renderUs();
+});
 
 /* QUE LOS DATOS DEL FORMULARIO JUNTO CON EL PRODUCTO ELEGIDO SE IMPRIMA EN UN DIV, MODO TEXTO */
-/* ENVIAR ESE DIV POR WHATSAPP O MAIL */
