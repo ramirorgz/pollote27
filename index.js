@@ -8,13 +8,11 @@ const containPromos = document.querySelector("#promociones .row");
 let listaPromociones = [];
 
 const btnAbrirForm = document.getElementById("btn__alformulario");
+
 const formulario = document.getElementById("data__formulario");
 let btnEnviar = document.querySelector("#btnEnviar");
 
 let listaClientes = localStorage.getItem("Clientes") || [];
-let nombre = document.getElementById("nombre").value.toUpperCase();
-let domicilio = document.getElementById("domicilio").value.toUpperCase();
-let telefono = document.getElementById("telefono").value;
 
 const btnUs = document.querySelector("#aboutUs");
 const containerUs = document.querySelector(".container__us");
@@ -88,16 +86,6 @@ const crearCLiente = () => {
   return nuevoCliente;
 };
 /* VALIDEMOS LOS DATOS DEL FORMULARIO */
-/* 
-$("#nombre").on("keyup", function () {
-  validarDatos();
-});
-$("#domicilio").on("keyup", function () {
-  validarDatos();
-});
-$("#telefono").on("keyup", function () {
-  validarDatos();
-}); */
 
 const validarDatos = () => {
   if (
@@ -150,21 +138,6 @@ const promos = () => {
       });
     })
     .catch((error) => console.log(error));
-  /* .then((result) => {
-      let data = result;
-      /* console.log(data); */
-  /* data.forEach((promo) => {
-        let listapromo = document.createElement("card");
-        listapromo.innerHTML += `
-              <h4>${promo.nombre}</h4>
-              <p>Precio $${promo.precio}</p>
-              <img>${promo.imagen}</img>
-              
-            `;
-        document.querySelector(containPromos).appendChild(listapromo);
-      });
-    })
-    .catch((error) => console.log(error)); */
 };
 
 /* INFORMACION DEL LOCAL / REFERENCIAS / DATOS */
@@ -201,6 +174,7 @@ const estadoFormulario = {
 btnPromos.addEventListener("click", (e) => {
   e.preventDefault();
   promos();
+  btnPromos.style.opacity = 0;
 });
 
 /* CLICK EN ABRIR FORMULARIO */
@@ -209,12 +183,9 @@ btnAbrirForm.onclick = (e) => {
   e.preventDefault();
   if (estadoFormulario.mostrar) {
     formulario.style.opacity = 1;
-    estadoFormulario.mostrar = false;
     btnAbrirForm.style.opacity = 0;
   } else {
-    formulario.style.opacity = 0;
-    estadoFormulario.mostrar = true;
-    btnAbrirForm.style.opacity = 1;
+    estadoFormulario.mostrar = false;
   }
 };
 
@@ -232,7 +203,7 @@ btnEnviar.addEventListener("click", () => {
   return datosValidos;
 });
 
-btnUs.addEventListener("click", (e) => {
+btnUs.addEventListener("mouseover", (e) => {
   e.preventDefault();
   renderUs();
 });

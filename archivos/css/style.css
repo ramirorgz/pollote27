@@ -65,7 +65,9 @@ body {
 
 #data__formulario {
   opacity: 0;
-  position: absolute;
+  position: relative;
+  border: solid;
+  background-color: rgb(245, 241, 181) !important;
 }
 
 .mo-fire {
