@@ -45,6 +45,7 @@ body {
   color: rgb(19, 14, 14) !important;
   background-color: rgb(245, 241, 181) !important;
   font-size: xx-large !important;
+  border-radius: 10px;
 }
 
 .navbar-nav {

@@ -142,8 +142,8 @@ const promos = () => {
       let promos = result;
       promos.forEach((promocion) => {
         containPromos.innerHTML += `
-      <card><img>${promocion.imagen}.src</img>
-            <h3>${promocion.nombre}</h3>
+      <card class="col-lg-6"><img src="${promocion.imagen}" class="mw-100 p-3"></img>
+            <h2>${promocion.nombre}</h2>
             <small>$${promocion.precio}</small>
       </card>
       `;
