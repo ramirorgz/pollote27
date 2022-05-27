@@ -94,13 +94,13 @@ const validarDatos = () => {
     $("#telefono").val().length >= 8
   ) {
     guardar();
-    $(".error").removeClass("show");
+    $("small").removeClass("show");
   } else {
-    $(".error").addClass("show");
+    $("small").addClass("show");
   }
 };
 
-/* ENVIAR FORMULARIO CON DATOS DEL CLIENTE AL SERVIDOR */
+/* ENVIAR FORMULARIO CON DATOS DEL CLIENTE AL LOCAL */
 const enviarDatos = () => {};
 
 const verificarStorage = () => {

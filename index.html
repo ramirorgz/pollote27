@@ -80,29 +80,45 @@
     </div>
     <!-- MAIN -->
     <main>
-      <div class="container-fluid"> <h1 id="phone" class="row justify-content-center text-decoration-underline">11 6719-0172</h1></div>
-      <!-- SECCION INTERACTUANDO CON EL CLIENTE -->
-      <div class="container text-center">
-        <!-- DESPLEGAMOS FORMULARIO  -->
-          <button  id="btn__alformulario" type="button" class="btn col-lg-6">REALIZAR PEDIDO</button>
-          <div id="data__formulario">
 
-              <form action="" class="fs-3">
+      <div class="container-fluid"> <h1 id="phone" class="row justify-content-center text-decoration-underline">11 6719-0172</h1></div>
+      <div  class="text-center my-3">
+        <h1>ABIERTO DE MARTES A DOMINGO</h1>
+        <h2>11hs a 23hs</h2>
+      </div>
+      <!-- SECCION INTERACTUANDO CON EL CLIENTE -->
+      <div class="container text-center my-2">
+        <!-- DESPLEGAMOS FORMULARIO  -->
+          <h3 class="text-white" >¡Recibí nuestras ofertas y promociones del dia!</h3>
+          <button  id="btn__alformulario" type="button" class="btn col-lg-6">ABRIR</button>
+          <div id="data__formulario">
+            <form action="" class="fs-3">
               <h3>Formulario de Contacto</h3>
               <hr></hr>
-              <label for="fname"> Nombre: </label>
-              <input type="text" id="nombre" name="fname" placeholder="Nombre" required><br>
-              <label for="text"> Domicilio: </label>
-              <input type="text" id="domicilio" placeholder="Domicilio" required><br>
-              <label for="phone"> Telefono: </label>
-              <input type="tel" id="telefono" placeholder="Telefono" required><br>
-              <input id="btnEnviar" type="submit" class="btn" value="Enviar">
-            <a href="https://wa.me/5491167190172?text=Hola%20pollote,%20me%20gustaria%20hacer%20un%20pedido."></a>
-            </input>
+                <div>
+                  <label for="fname"> Nombre: </label>
+                  <input class="my-2" type="text" id="nombre" name="fname" placeholder="Nombre" required><br>
+                  <small></small>
+                </div>
+                <div>
+                  <label for="text"> Domicilio: </label>
+                  <input class="my-2" type="text" id="domicilio" placeholder="Calle" required><br>
+                  <small></small>
+                </div>
+                <div>
+                  <label for="phone"> Telefono: </label>
+                  <input class="my-2" type="tel" id="telefono" placeholder="11 2345 6789" required><br>
+                  <small></small>
+                </div>
+                <div>
+                  <input id="btnEnviar" type="submit" class="btn" value="Enviar">
+                  <a href="https://wa.me/5491167190172?text=Hola%20pollote,%20me%20gustaria%20hacer%20un%20pedido."></a>
+                  </input>
+                </div>
               </form>
           </div>
           <div id="promociones" class="container border mt-5">
-            <h2 class="text-center text-light" > PROMOCIONES DE HOY </h2>
+            <h2 class="text-center text-light" > NUESTRO MENU </h2>
             <!-- MOSTRAMOS PROMOCIONES-->
             <button id="ver_promos" class="btn fs-1" >ver promos</button>
             <div class="row container-fluid p-3 text-light fs-2">
