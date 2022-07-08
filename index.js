@@ -58,6 +58,7 @@ let cheff = [
 
 /* MENU COMPLETO */
 let menuCompleto = pollos.concat(sanguches, cheff);
+console.log(menuCompleto);
 
 /* FUNCIONES */
 
